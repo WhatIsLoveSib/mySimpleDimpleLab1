@@ -53,18 +53,19 @@ int mt_stopcolor()
 void print_test_lab2() {
 	mt_clrscr();
 	mt_gotoXY(10, 5);
-	mt_setbgcolor(red);
-	mt_setfgcolor(black);
-	printf("Lab 2");
+	mt_setbgcolor(black);
+	mt_setfgcolor(red);
+	printf("Vladislav");
 	
 	mt_gotoXY(11, 6);
-	mt_setbgcolor(green);
-	mt_setfgcolor(white);
-	printf("hello");
+	mt_setbgcolor(white);
+	mt_setfgcolor(green);
+	printf("IV-022");
 	
 	int rows, cols;
 	mt_getscreensize(&rows, &cols);
-	mt_gotoXY(6, 7);
+	mt_setbgcolor(black);
+	mt_gotoXY(1, 10);
 	printf("Rows: %d Rols: %d", rows, cols);	
 }
 
