@@ -21,8 +21,8 @@ enum colors {
 int mt_clrscr();
 int mt_gotoXY(int y, int x);
 int mt_getscreensize(int *rows, int *cols);
-int mt_ssetfgcolor(enum colors color);
-int mt_ssetbgcolor(enum colors color);
+int mt_setfgcolor(enum colors color);
+int mt_setbgcolor(enum colors color);
 int mt_stopcolor();
 
 #endif
