@@ -18,11 +18,10 @@ int mt_gotoXY(int y, int x)
 int mt_getscreensize(int *rows, int *cols)
 {
 	struct winsize ws;
-	
-	if (*rows > ws.ws_row || *cols > ws.ws_col) {
-	  return -1;
+
+	if (ioctl(1, TIOCGWINSZ, &ws)) {
+		return 1;
 	} else {
-	  mt_gotoXY(*rows, *cols);
 		*rows = ws.ws_row;
 		*cols = ws.ws_col;
 	}
@@ -52,28 +51,26 @@ int mt_stopcolor()
 }
 
 void print_test_lab2() {
-        mt_clrscr();
-	int x = 10000;
-	int y = 5;
-	mt_getscreensize(&y, &x);
+	mt_clrscr();
+	mt_gotoXY(10, 5);
 	mt_setbgcolor(black);
 	mt_setfgcolor(red);
 	printf("Vladislav");
-
-	x = 16;
-	y = 13;
-	mt_getscreensize(&y, &x);
+	
+	mt_gotoXY(11, 6);
 	mt_setbgcolor(white);
 	mt_setfgcolor(green);
 	printf("IV-022");
-
+	
+	int rows, cols;
+	mt_getscreensize(&rows, &cols);
 	mt_setbgcolor(black);
-	mt_setfgcolor(white);;
-        
+	mt_gotoXY(1, 10);
+	printf("Rows: %d Rols: %d", rows, cols);	
 }
 
-int main()
+/*int main()
 {
 	print_test_lab2();
 	return 0;
-}
+}*/
